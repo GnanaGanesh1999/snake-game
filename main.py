@@ -36,11 +36,8 @@ while game_is_on:
         snake.extend()
         score.increase_score()
 
-    if snake.detect_collision_wih_snake():
+    if snake.detect_collision_wih_snake() or snake.detect_collision_with_wall():
         score.game_over()
         game_is_on = False
-
-
-
 
 screen.exitonclick()
