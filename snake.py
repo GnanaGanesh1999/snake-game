@@ -11,8 +11,7 @@ class Snake:
 
     def __init__(self):
         self.segments = []
-        self.add_segment(position=(-10, 0), is_start=True)
-        self.create_snake()
+        self.restart()
         self.head = self.segments[0]
 
     def create_snake(self):
@@ -77,3 +76,12 @@ class Snake:
             if self.head.distance(segment) < 10:
                 return True
         return False
+
+    def restart(self):
+        for segment in self.segments:
+            segment.goto(1000, 1000)
+        self.segments.clear()
+
+        self.add_segment(position=(-10, 0), is_start=True)
+        self.create_snake()
+        self.head = self.segments[0]
